@@ -16,9 +16,16 @@ def cislo_text(cislo):
 
 	desitka, zbytek = cislo//10, cislo % 10
 	text_desitky = desitky[desitka * 10]
-	return text_desitky if zbytek == 0 else f"{text_desitky} {jednotky[zbytek]}"
+	return text_desitky 
+
+	if zbytek == 0:
+		return text_desitky 
+	else:
+		return f"{text_desitky} {jednotky[zbytek]}"
 
 
 if __name__ == "__main__":
     print(cislo_text(0))      
-    print(cislo_text(5))      
+    print(cislo_text(5))
+    print(cislo_text(55))
+    print(cislo_text(100))
