@@ -59,4 +59,3 @@ def print_file_type(file_name):
 if __name__ == '__main__':
     file_name = "kitten"
     print_file_type(file_name)
-
