@@ -9,48 +9,43 @@ png_header = b'\x89PNG\r\n\x1a\n'
 
 
 def read_header(file_name, header_length):
-    """
-    Tato funkce načte binární soubor z cesty file_name,
-    z něj přečte prvních header_length bytů a ty vrátí pomocí return
-    """
-    return b'xxx'
+    with open(file_name, 'rb') as f:
+        header = f.read(header_length)
+    return header
 
 
 def is_jpeg(file_name):
-    """
-    Funkce zkusí přečíst ze souboru hlavičku obrázku jpeg,
-    tu srovná s definovanou hlavičkou v proměnné jpeg_header
-    """
-    # načti hlavičku souboru
+       # načti hlavičku souboru
     header = read_header(file_name, len(jpeg_header))
 
     # vyhodnoť zda je soubor jpeg
-
+    if header == jpeg_header:
+        return True
     return False
 
 
 def is_gif(file_name):
-    """
-    Funkce zkusí přečíst ze souboru hlavičku obrázku jpeg,
-    tu srovná s definovanými hlavičkami v proměnných gif_header1 a gif_header2
-    """
+
+    # načti hlavičku souboru
+    header = read_header(file_name, len(gif_header1))
+
     # vyhodnoť zda je soubor gif
+    if header == gif_header1 or header == gif_header2:
+        return True
     return False
 
 
 def is_png(file_name):
-    """
-    Funkce zkusí přečíst ze souboru hlavičku obrázku jpeg,
-    tu srovná s definovanou hlavičkou v proměnné png_header
-    """
+    # načti hlavičku souboru
+    header = read_header(file_name, len(png_header))
+
     # vyhodnoť zda je soubor png
+    if header == png_header:
+        return True
     return False
 
 
 def print_file_type(file_name):
-    """
-    Funkce vypíše typ souboru - tuto funkci není třeba upravovat
-    """
     if is_jpeg(file_name):
         print(f'Soubor {file_name} je typu jpeg')
     elif is_gif(file_name):
@@ -62,6 +57,5 @@ def print_file_type(file_name):
 
 
 if __name__ == '__main__':
-    # přidej try-catch blok, odchyť obecnou vyjímku Exception a vypiš ji
-    file_name = sys.argv[1]
+    file_name = "kitten"
     print_file_type(file_name)
