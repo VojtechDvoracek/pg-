@@ -57,5 +57,11 @@ def print_file_type(file_name):
 
 
 if __name__ == '__main__':
-    file_name = "kitten"
-    print_file_type(file_name)
+       if __name__ == '__main__':
+        try:
+            file_name = sys.argv[1]
+            print_file_type(file_name)
+        except IndexError:
+            print("Nebyl zadán název souboru.")
+        except FileNotFoundError:
+            print("Soubor nebyl nalezen. Zkontroluj název a cestu.")
