@@ -27,7 +27,6 @@ def download_url_and_get_all_hrefs(url):
         print(f"Odkaz: {href}")
     return hrefs
 
-
 if __name__ == "__main__":
     try:
         url = sys.argv[1]
