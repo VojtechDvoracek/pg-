@@ -32,5 +32,8 @@ if __name__ == "__main__":
         url = sys.argv[1]
         download_url_and_get_all_hrefs(url)
 
+    except IndexError:
+        print("Nebyla zadana URL.")
+
     except Exception as e:
         print(f"Program skoncil chybou: {e}")
