@@ -15,7 +15,6 @@ def bin_to_dec(binarni_cislo):
             i += 1
         return dec
     
-
 def test_bin_to_dec():
     assert bin_to_dec("0") == 0
     print(bin_to_dec(0))
